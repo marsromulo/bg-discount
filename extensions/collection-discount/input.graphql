@@ -1,0 +1,21 @@
+query Input ($selectedCollectionIds: [ID!]) {
+  cart {
+    lines {
+      quantity
+      merchandise {
+        __typename
+        ...on ProductVariant {
+          id
+           product{
+            inAnyCollection(ids: $selectedCollectionIds)
+          }
+        }
+      }
+    }
+  }
+  discountNode {
+    metafield(namespace: "$app:collection-discount", key: "function-configuration") {
+      value
+    }
+  }
+}

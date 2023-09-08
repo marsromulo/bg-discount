@@ -610,15 +610,6 @@ export default function VolumeEdit() {
                                     : discountCode.value
                             }
                         />
-
-                        {/* <LegacyCard title="Active Dates">
-                            <LegacyCard.Section>
-                            <TextField label="Start date" value={_starts_at} />   
-                            <div style={{marginTop:'20px'}}>             
-                            <TextField label="End date" value={_ends_at} />  
-                            </div>  
-                            </LegacyCard.Section>
-                        </LegacyCard> */}
               
                          <div id="active-dates" style={{marginTop:'20px'}}>
                         <ActiveDatesCard

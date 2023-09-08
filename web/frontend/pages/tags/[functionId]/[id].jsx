@@ -318,8 +318,6 @@ export default function TagEdit() {
                 });
 
                 const data2 = (await response2.json()).body.data;
-                // console.log("DATA 2",data2);
-                // console.log("DISCOUNT ID", discount_id);
 
             }
 
@@ -475,13 +473,6 @@ export default function TagEdit() {
                                             <TextField label="Tag:" {...productTag} />
                                      </div>
                                 
-                                    {/* <LegacyStack>
-                                        <Checkbox
-                                        label="Require customer to have the same tag"
-                                        checked={customerTag}
-                                        onChange={handleCustomerTagChange}
-                                        />
-                                    </LegacyStack> */}
                             </LegacyCard.Section>
 
                         </LegacyCard>

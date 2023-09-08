@@ -363,7 +363,6 @@ export default function TagNew() {
                                                                 prefix="$"
                                                                 placeholder="0.00"
                                                             />
-                                                        
                                                         )
                                                         }
                                                     </div>
@@ -394,13 +393,6 @@ export default function TagNew() {
                                         </div>
                                     </LegacyStack>
                                 
-                                    {/* <LegacyStack>
-                                        <Checkbox
-                                        label="Require customer to have the same tag"
-                                        checked={customerTag}
-                                        onChange={handleCustomerTagChange}
-                                        />
-                                    </LegacyStack> */}
                                 </LegacyCard.Section>
 
                             </LegacyCard>

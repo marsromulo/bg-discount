@@ -412,59 +412,6 @@ export default function OrderNew() {
                                             <TextField label="Minimum order amount:" {...minimumOrder} />
                                         </div>
                                     </LegacyStack>
-                                    {/* <LegacyStack>
-                                            <LegacyStack.Item>
-                                                <div style={{width:"120px"}}>
-                                                <TextField label="Minimum qty." {...configuration.quantity} />
-                                                </div>
-                                            </LegacyStack.Item>
-                                            <LegacyStack.Item fill>
-                                                
-                                            <Text>
-                                                <div style={{marginBottom:"3px"}}>
-                                                Type
-                                                </div>
-                                            </Text>
-                                                <LegacyStack>
-                                                <LegacyStack.Item>
-                                                    <ButtonGroup segmented >
-                                                        <Button
-                                                        pressed={isFirstButtonActive}
-                                                        onClick={handleFirstButtonClick}
-                                                        >Percentage</Button>
-                                                        <Button
-                                                        pressed={!isFirstButtonActive}
-                                                        onClick={handleSecondButtonClick}
-                                                        >FixedAmount</Button>
-                                                    </ButtonGroup>
-                                                    </LegacyStack.Item>
-                                                    <LegacyStack.Item>
-                                                    <div style={{width:"150px"}}>
-                                                        {
-                                                        isFirstButtonActive ? (
-                                                            
-                                                            <TextField 
-                                                                {...configuration.percentage}
-                                                                suffix="%"
-                                                                placeholder="0"
-                                                            />
-                                                            
-                                                        ) : (
-                                                            
-                                                            <TextField 
-                                                                {...configuration.value}
-                                                                prefix="$"
-                                                                placeholder="0.00"
-                                                            />
-                                                        
-                                                        )
-                                                        }
-                                                    </div>
-                                                    </LegacyStack.Item>
-                                                    </LegacyStack>
-                                            </LegacyStack.Item>
-                                
-                                    </LegacyStack> */}
                                
                                     <LegacyStack distribution="fill">
   
@@ -494,37 +441,7 @@ export default function OrderNew() {
                                         <SelectedProductCard key={index} product= {product} />
                                         )}
                                     </div>
-
-                                    {/* <LegacyStack distribution="fill">
-                                        <div style={{marginTop:'20px', marginBottom:'20px'}}>
-                                        <VerticalStack gap="1"> 
-                                            <Text>Apply discount to collections</Text>
-                                            <input 
-                                                type="text" 
-                                                placeholder="Search collection / update list" 
-                                                onClick={handleSearchCollection} 
-                                                style={{padding:'10px', border:'none', borderStyle:'solid', borderWidth:'1px', borderRadius:'4px'}}
-                                            />
-                                        </VerticalStack>    
-                                        </div>
-                                    </LegacyStack>
-
-                                    <ResourcePicker 
-                                        resourceType='Collection'
-                                        open={collectionPickerOpen}
-                                        onSelection={(resources) => handleCollectionSelection(resources)}
-                                        onCancel={() => setCollectionPickerOpen(false)}
-                                        initialSelectionIds = {selectedCollectionIds}          
-                                    />
-
-                                    <div id="selected-collection-card">
-                                        {selectedCollections && selectedCollections.map((collection, index)=> 
-                                        <SelectedCollectionCard key={index} collection= {collection} />
-                                        )}
-                                    </div>  */}
-                                </LegacyCard.Section>
-
-                                
+                                </LegacyCard.Section>                                
                             </LegacyCard>
                         </div>
 

@@ -178,9 +178,6 @@ export default function VolumeNew() {
 
             const tempFormErrors = [];
 
-            // if(!form.endDate){
-            //     tempFormErrors.push("End date is required");
-            // } 
             if (!form.discountTitle && form.discountCode==""){
                 tempFormErrors.push("Discount title is required");
             }

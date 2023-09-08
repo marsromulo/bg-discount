@@ -1,3 +1,4 @@
 # This file stores configurations for your Shopify app.
 
 scopes = "write_products, write_discounts"
+SHOPIFY_API_KEY=4a215e2ac5e03796194f36f2c8abe76b

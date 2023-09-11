@@ -85,35 +85,6 @@ const UPDATE_CODE_MUTATION = `
 `;
 
 
-
-
-
-
-
-// const QUERY_DISCOUNT_NODE = `
-// query ($id: ID!) {
-//   discountNode(id: $id) {
-//     discount {
-//       ... on DiscountAutomaticApp {
-//         endsAt
-//         startsAt
-//         title
-//         combinesWith {
-//           orderDiscounts
-//           productDiscounts
-//           shippingDiscounts
-//         }
-//       }
-//     }
-//     metafields(first: 1) {
-//       nodes {
-//         value
-//       }
-//     }
-//   }
-// }
-// `
-
 const QUERY_DISCOUNT_NODE = `
 query ($id: ID!) {
   discountNode(id: $id) {

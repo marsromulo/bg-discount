@@ -1,6 +1,7 @@
 {
   "name": "shopify-frontend-template-react",
   "version": "1.0.0",
+  "homepage": "https://bgdiscount.netlify.app/",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

@@ -5,7 +5,6 @@ import { CurrencyCode } from "@shopify/react-i18n";
 import { Redirect } from "@shopify/app-bridge/actions";
 import { useAppBridge, ResourcePicker } from "@shopify/app-bridge-react";
 import SelectedProductCard from '../../../components/SelectedProductCard';
-import SelectedCollectionCard from "../../../components/SelectedCollectionCard";
 import $ from "jquery";
 
 import {
@@ -22,25 +21,18 @@ import {
 } from "@shopify/discount-app-components";
 import {
     Banner,
-    Card,
     Layout,
     Page,
     TextField,
-    Stack,
     PageActions,
     VerticalStack,
     LegacyCard,
     LegacyStack,
     Text,
-    Button,
-    Modal,
-    ButtonGroup,
 } from "@shopify/polaris";
-import { data } from "@shopify/app-bridge/actions/Modal";
 import { useAuthenticatedFetch } from "../../../hooks";
 
 const todaysDate = new Date();
-
 
 // Metafield that will be used for storing function configuration
 const METAFIELD_NAMESPACE = "$app:order-discount";
@@ -142,9 +134,7 @@ export default function OrderEdit() {
         setIsFirstButtonActive(metafields.percentage ? true : false);
   
         $('#PolarisCheckbox3').attr('disabled', 'disabled'); // disable Other Product Discount
-        // $('#volume .Polaris-LegacyStack:nth-child(2) .Polaris-LegacyStack__Item, #volume .Polaris-LegacyStack:nth-child(4) .Polaris-LegacyStack__Item').css("width","95%");
 
-        // $('#PolarisTextField9').val(split_start_date[0]).attr('disabled', 'disabled');
         $("#PolarisComboboxTextField1").val(split_start_date[1].substring(0, 5)).attr('disabled', 'disabled');
 
 
@@ -177,56 +167,6 @@ export default function OrderEdit() {
         
     }
 
-    const handleSearchCollection = () => {
-        setCollectionPickerOpen(true);
-    }
-
-    const handleCollectionSelection = async (resources) => {
-       
-        setCollectionPickerOpen(false);
-
-        const tempSelectedCollectionIds = [];   
-        const tempSelectedCollections = [];
-
-        resources.selection.map((collection) => {
-            tempSelectedCollections.push({id:collection.id, title:collection.title});
-            tempSelectedCollectionIds.push({id:collection.id});
-        });
-
-        setSelectedCollectionIds(tempSelectedCollectionIds);
-        setSelectedCollections(tempSelectedCollections);
-
-
-        tempSelectedCollectionIds.map( async (collection_id)=> {
-
-            const response = await authenticatedFetch("/api/product/variants", {
-                method: "POST",
-                headers: { 
-                    Accept: "application/json",
-                    "Content-Type": "application/json" 
-                },
-                body: JSON.stringify({id:collection_id.id})
-            });
-    
-            const data = await response.json();
-
-            data.body.data.collection.products.nodes.map((product)=> {
-                selectedCollectionVariantIds.push(product.variants.edges[0].node.id)
-            } )
-    
-        } )
-    }
-
-    const handleFirstButtonClick = useCallback( () => {
-        if (isFirstButtonActive) return;
-        setIsFirstButtonActive(true);
-    }, [isFirstButtonActive])
-
-
-    const handleSecondButtonClick = useCallback( () => {
-        if (!isFirstButtonActive) return;
-        setIsFirstButtonActive(false);
-    }, [isFirstButtonActive])
 
     // Define base discount form fields
     const {

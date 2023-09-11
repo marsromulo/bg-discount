@@ -5,7 +5,6 @@ import { CurrencyCode } from "@shopify/react-i18n";
 import { Redirect } from "@shopify/app-bridge/actions";
 import { useAppBridge, ResourcePicker } from "@shopify/app-bridge-react";
 import SelectedProductCard from '../../../components/SelectedProductCard';
-import SelectedCollectionCard from "../../../components/SelectedCollectionCard";
 import $ from "jquery";
 
 import {
@@ -24,21 +23,15 @@ import {
 } from "@shopify/discount-app-components";
 import {
     Banner,
-    Card,
     Layout,
     Page,
     TextField,
-    Stack,
     PageActions,
     VerticalStack,
     Text,
-    InlineError,
     LegacyCard,
     LegacyStack,
-    ButtonGroup,
-    Button
 } from "@shopify/polaris";
-import { data } from "@shopify/app-bridge/actions/Modal";
 import { useAuthenticatedFetch } from "../../../hooks";
 
 const todaysDate = new Date();
@@ -102,57 +95,6 @@ export default function OrderNew() {
         setSelectedVariantIds(tempSelectedVariantIds);
         setSelectedProductIds(tempSelectedProductIds);
     }
-
-    const handleSearchCollection = () => {
-        setCollectionPickerOpen(true);
-    }
-
-    const handleCollectionSelection = async (resources) => {
-       
-        setCollectionPickerOpen(false);
-
-        const tempSelectedCollectionIds = [];   
-        const tempSelectedCollections = [];
-
-        resources.selection.map((collection) => {
-            tempSelectedCollections.push({id:collection.id, title:collection.title});
-            tempSelectedCollectionIds.push({id:collection.id});
-        });
-
-        setSelectedCollectionIds(tempSelectedCollectionIds);
-        setSelectedCollections(tempSelectedCollections);
-
-        tempSelectedCollectionIds.map( async (collection_id)=> {
-
-            const response = await authenticatedFetch("/api/product/variants", {
-                method: "POST",
-                headers: { 
-                    Accept: "application/json",
-                    "Content-Type": "application/json" 
-                },
-                body: JSON.stringify({id:collection_id.id})
-            });
-    
-            const data = await response.json();
-
-            data.body.data.collection.products.nodes.map((product)=> {
-                selectedCollectionVariantIds.push(product.variants.edges[0].node.id)
-            } )
-        } )
-        
-    }
-
-    const handleFirstButtonClick = useCallback( () => {
-        if (isFirstButtonActive) return;
-        setIsFirstButtonActive(true);
-    }, [isFirstButtonActive])
-
-
-    const handleSecondButtonClick = useCallback( () => {
-        if (!isFirstButtonActive) return;
-        setIsFirstButtonActive(false);
-    }, [isFirstButtonActive])
-
 
     // Define base discount form fields
     const {

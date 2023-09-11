@@ -2,7 +2,7 @@
 
 name = "B&G Discount App"
 client_id = "f157678dea357b26328c05a8f6b71a70"
-application_url = "https://public-publish-res-page.trycloudflare.com"
+application_url = "https://bgdiscount.netlify.app/"
 embedded = true
 
 [access_scopes]
@@ -12,9 +12,9 @@ use_legacy_install_flow = true
 
 [auth]
 redirect_urls = [
-  "https://public-publish-res-page.trycloudflare.com/auth/callback",
-  "https://public-publish-res-page.trycloudflare.com/auth/shopify/callback",
-  "https://public-publish-res-page.trycloudflare.com/api/auth/callback"
+  "https://bgdiscount.netlify.app/auth/callback",
+  "https://bgdiscount.netlify.app/auth/shopify/callback",
+  "https://bgdiscount.netlify.app/api/auth/callback"
 ]
 
 [webhooks]

@@ -1,0 +1,21 @@
+# fly.toml app configuration file generated for broken-morning-5761 on 2023-09-18T12:01:26+08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "broken-morning-5761"
+primary_region = "atl"
+
+[env]
+  PORT = "3000"
+  HOST = "https://broken-morning-5761.fly.dev"
+  SHOPIFY_API_KEY = "4a215e2ac5e03796194f36f2c8abe76b"
+  SCOPES = "write_products, write_discounts"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]

@@ -8,6 +8,7 @@
     "dev": "vite",
     "coverage": "vitest run --coverage"
   },
+  "type": "module",
   "engines": {
     "node": ">= 12.16"
   },

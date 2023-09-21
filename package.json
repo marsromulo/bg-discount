@@ -1,0 +1,30 @@
+{
+  "name": "discount-101",
+  "version": "1.0.0",
+  "main": "web/index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "shopify": "shopify",
+    "build": "shopify app build",
+    "dev": "shopify app dev",
+    "info": "shopify app info",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy"
+  },
+  "dependencies": {
+    "@shopify/app": "^3.48.1",
+    "@shopify/cli": "^3.48.1",
+    "@shopify/polaris-icons": "^7.3.0",
+    "@shopify/shopify-api": "^7.5.2",
+    "axios": "^1.5.0",
+    "jquery": "^3.7.1",
+    "react": "^17.0.2"
+  },
+  "author": "teddy.romulo",
+  "private": true,
+  "workspaces": [
+    "web",
+    "web/frontend",
+    "extensions/*"
+  ]
+}

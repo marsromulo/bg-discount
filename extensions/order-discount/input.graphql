@@ -1,0 +1,28 @@
+query Input {
+  cart {
+    cost {
+      subtotalAmount {
+        amount
+      }
+    }
+    lines {
+      quantity
+      cost{
+        amountPerQuantity{
+          amount
+        }
+      }
+      merchandise {
+        __typename
+        ...on ProductVariant {
+          id
+        }
+      }
+    }
+  }
+  discountNode {
+    metafield(namespace: "$app:order-discount", key: "function-configuration") {
+      value
+    }
+  }
+}
